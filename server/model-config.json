@@ -34,5 +34,13 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Training": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "UserAccount": {
+    "dataSource": "mysqlDs",
+    "public": true
   }
 }

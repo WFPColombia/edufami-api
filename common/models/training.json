@@ -1,0 +1,82 @@
+{
+  "name": "Training",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "nameAudio": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "descriptionAudio": {
+      "type": "string"
+    },
+    "descriptionLong": {
+      "type": "string"
+    },
+    "descriptionLongAudio": {
+      "type": "string"
+    },
+    "zipFileUrl": {
+      "type": "string"
+    },
+    "created": {
+      "type": "date"
+    },
+    "edited": {
+      "type": "date"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "number"
+    },
+    "imageId": {
+      "type": "number"
+    },
+    "languageId": {
+      "type": "string"
+    },
+    "ownerId": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "owner": {
+      "type": "belongsTo",
+      "model": "UserAccount",
+      "foreignKey": "ownerId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
