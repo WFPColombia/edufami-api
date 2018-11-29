@@ -39,11 +39,11 @@ module.exports = function(app) {
       }, {
         name: 'Nutrifami Pácifico',
         created: Date.now(),
-        ownerId: 1
+        ownerId: 2
       }, {
         name: 'Nutrifami Senegal',
         created: Date.now(),
-        ownerId: 1
+        ownerId: 3
       }, ], cb);
     });
   }
