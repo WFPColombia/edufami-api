@@ -17,13 +17,8 @@ module.exports = function(app) {
       var UserAccount = app.models.UserAccount;
       UserAccount.create([{
         email: 'admin@admin.com',
+        username: 'admin',
         password: 'qwe123'
-      }, {
-        email: 'john@doe.com',
-        password: 'johndoe'
-      }, {
-        email: 'jane@doe.com',
-        password: 'janedoe'
       }], cb);
     });
   }
