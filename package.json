@@ -8,6 +8,8 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
+    "local": "NODE_ENV='local' node .",
+    "dev": "NODE_ENV='development' node .",
     "posttest": "npm run lint"
   },
   "dependencies": {
