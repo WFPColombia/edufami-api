@@ -1,4 +1,4 @@
-var async = require('async');
+/* var async = require('async');
 module.exports = function(app) {
   //data sources
   var mysqlDs = app.dataSources.mysqlDs;
@@ -42,4 +42,4 @@ module.exports = function(app) {
       }, ], cb);
     });
   }
-};
+}; */
