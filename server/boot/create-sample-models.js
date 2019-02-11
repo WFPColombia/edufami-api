@@ -1,17 +1,30 @@
-/* var async = require('async');
+var async = require('async');
 module.exports = function(app) {
   //data sources
   var mysqlDs = app.dataSources.mysqlDs;
   //create all models
   async.parallel({
-    userAccounts: async.apply(createUserAccounts),
+    createStaffUsers: async.apply(createStaffUsers),
     trainings: async.apply(createTrainings),
   }, function(err, results) {
     if (err) throw err;
     console.log('> models created sucessfully');
   });
-  //create reviewers
-  function createUserAccounts(cb) {
+
+  //create Staff Members
+  function createStaffUsers(cb) {
+    mysqlDs.automigrate('StaffUser', function(err) {
+      if (err) return cb(err);
+      var StaffUser = app.models.StaffUser;
+      StaffUser.create([{
+        email: 'admin@admin.com',
+        username: 'admin',
+        password: 'qwe123'
+      }], cb);
+    });
+  }
+  //create App Users
+  /*function createUserAccounts(cb) {
     mysqlDs.automigrate('UserAccount', function(err) {
       if (err) return cb(err);
       var UserAccount = app.models.UserAccount;
@@ -21,8 +34,8 @@ module.exports = function(app) {
         password: 'qwe123'
       }], cb);
     });
-  }
-  //create coffee shops
+  }*/
+  //create trainings
   function createTrainings(cb) {
     mysqlDs.automigrate('Training', function(err) {
       if (err) return cb(err);
@@ -34,12 +47,12 @@ module.exports = function(app) {
       }, {
         name: 'Nutrifami Pácifico',
         created: Date.now(),
-        ownerId: 2
+        ownerId: 1
       }, {
         name: 'Nutrifami Senegal',
         created: Date.now(),
-        ownerId: 3
+        ownerId: 1
       }, ], cb);
     });
   }
-}; */
+};
