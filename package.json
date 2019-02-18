@@ -10,6 +10,7 @@
     "start": "node .",
     "local": "NODE_ENV='local' node .",
     "dev": "NODE_ENV='development' node .",
+    "prod": "NODE_ENV='production' node .",
     "posttest": "npm run lint"
   },
   "dependencies": {
