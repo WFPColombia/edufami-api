@@ -1,9 +1,11 @@
 var async = require('async');
 module.exports = function(app) {
   //data sources
+
   var mysqlDs = app.dataSources.mysqlDs;
   //create all models
   async.parallel({
+    createAccessToken: async.apply(createAccessToken),
     createStaffUsers: async.apply(createStaffUsers),
     trainings: async.apply(createTrainings),
   }, function(err, results) {
@@ -11,30 +13,46 @@ module.exports = function(app) {
     console.log('> models created sucessfully');
   });
 
+  // create AccessToken
+  function createAccessToken(cb) {
+    // [TODO] - Check how to implement autoupdate
+    // Automigrate this model even if we don't add information,
+    // We need to do this for when we are using other datasourcer different
+    // than the default datasource
+    mysqlDs.automigrate('AccessToken', function(err) {
+      if (err) return cb(err);
+      var AccessToken = app.models.AccessToken;
+      AccessToken.create([], cb);
+    });
+  }
+
   //create Staff Members
+  // Creating mock data for staff members
   function createStaffUsers(cb) {
     mysqlDs.automigrate('StaffUser', function(err) {
       if (err) return cb(err);
       var StaffUser = app.models.StaffUser;
       StaffUser.create([{
-        email: 'admin@admin.com',
+        email: 'admin@mail.com',
         username: 'admin',
         password: 'qwe123'
       }], cb);
     });
   }
+
   //create App Users
-  /*function createUserAccounts(cb) {
+  // Creating mock data for createUserAccounts
+  function createUserAccounts(cb) {
     mysqlDs.automigrate('UserAccount', function(err) {
       if (err) return cb(err);
       var UserAccount = app.models.UserAccount;
       UserAccount.create([{
-        email: 'admin@admin.com',
-        username: 'admin',
+        email: 'user@mail.com',
+        username: 'user',
         password: 'qwe123'
       }], cb);
     });
-  }*/
+  }
   //create trainings
   function createTrainings(cb) {
     mysqlDs.automigrate('Training', function(err) {
