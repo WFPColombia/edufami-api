@@ -53,5 +53,9 @@
   "StaffUser": {
     "dataSource": "mysqlDs",
     "public": true
+  },
+  "Unit": {
+    "dataSource": "mysqlDs",
+    "public": true
   }
 }

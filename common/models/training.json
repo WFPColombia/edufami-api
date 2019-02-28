@@ -56,6 +56,11 @@
       "type": "belongsTo",
       "model": "UserAccount",
       "foreignKey": "ownerId"
+    },
+    "units": {
+      "type": "hasMany",
+      "model": "Unit",
+      "foreignKey": "trainingId"
     }
   },
   "acls": [

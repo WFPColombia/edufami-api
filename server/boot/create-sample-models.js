@@ -8,9 +8,10 @@ module.exports = function(app) {
     createAccessToken: async.apply(createAccessToken),
     createStaffUsers: async.apply(createStaffUsers),
     trainings: async.apply(createTrainings),
+    unit: async.apply(createUnits),
   }, function(err, results) {
     if (err) throw err;
-    console.log('> models created sucessfully');
+    console.log('All models created sucessfully');
   });
 
   // create AccessToken
@@ -71,6 +72,34 @@ module.exports = function(app) {
         created: Date.now(),
         ownerId: 1
       }, ], cb);
+    });
+  }
+
+    function createUnits(cb) {
+    // [TODO] - Check how to implement autoupdate
+    mysqlDs.automigrate('Unit', function(err) {
+      if (err) return cb(err);
+      var Unit = app.models.Unit;
+      Unit.create([
+        {
+          "name": "Alimentación Saludable",
+          "name_audio": "",
+          "description": "En este m&oacute;dulo identificaremos qu&eacute; es la alimentaci&oacute;n y de qu&eacute; se componen los alimentos",
+          "description_audio": "string",
+          "image_id": "string",
+          "status": "string",
+          "trainingId": 1
+        },
+        {
+          "name": "Combinaciones Saludables",
+          "name_audio": "",
+          "description": "En este m&oacute;dulo identificaremos y haremos uso de combinaciones alimentarias saludables",
+          "description_audio": "string",
+          "image_id": "string",
+          "status": "string",
+          "trainingId": 2
+        }
+      ], cb);
     });
   }
 };

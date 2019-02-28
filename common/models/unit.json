@@ -1,0 +1,43 @@
+{
+  "name": "Unit",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "name_audio": {
+      "type": "string",
+      "default": "description"
+    },
+    "description": {
+      "type": "string"
+    },
+    "description_audio": {
+      "type": "string"
+    },
+    "image_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "trainingId": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "training": {
+      "type": "belongsTo",
+      "model": "Training",
+      "foreignKey": "trainingId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
