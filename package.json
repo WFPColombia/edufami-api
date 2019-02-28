@@ -11,6 +11,8 @@
     "local": "NODE_ENV='local' node .",
     "dev": "NODE_ENV='development' node .",
     "prod": "NODE_ENV='production' node .",
+    "migrate-dev": "NODE_ENV='development' node server/create-lb-tables.js",
+    "migrate-prod": "NODE_ENV='production' node server/create-lb-tables.js",
     "posttest": "npm run lint"
   },
   "dependencies": {

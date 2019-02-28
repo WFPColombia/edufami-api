@@ -1,4 +1,4 @@
-var async = require('async');
+/* var async = require('async');
 module.exports = function(app) {
   //data sources
 
@@ -102,4 +102,4 @@ module.exports = function(app) {
       ], cb);
     });
   }
-};
+}; */
