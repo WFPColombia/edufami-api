@@ -10,6 +10,7 @@ var lbTables = [
   "Training",
   "Unit",
   "Lesson",
+  "Step",
   "UserAccount"
 ];
 

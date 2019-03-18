@@ -61,5 +61,9 @@
   "Lesson": {
     "dataSource": "mysqlDs",
     "public": true
+  },
+  "Step": {
+    "dataSource": "mysqlDs",
+    "public": true
   }
 }

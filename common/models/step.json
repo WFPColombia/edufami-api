@@ -1,16 +1,18 @@
 {
-  "name": "Lesson",
+  "name": "Step",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "name": {
-      "type": "string",
-      "required": true
+    "type": {
+      "type": "string"
     },
-    "description": {
+    "instruction": {
+      "type": "string"
+    },
+    "question": {
       "type": "string"
     },
     "image": {
@@ -18,21 +20,13 @@
     },
     "order": {
       "type": "number"
-    },
-    "unitId": {
-      "type": "number"
     }
   },
   "validations": [],
   "relations": {
-    "unit": {
+    "lesson": {
       "type": "belongsTo",
-      "model": "Unit",
-      "foreignKey": ""
-    },
-    "steps": {
-      "type": "hasMany",
-      "model": "Step",
+      "model": "Lesson",
       "foreignKey": ""
     }
   },
