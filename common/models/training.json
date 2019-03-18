@@ -10,22 +10,7 @@
       "type": "string",
       "required": true
     },
-    "nameAudio": {
-      "type": "string"
-    },
     "description": {
-      "type": "string"
-    },
-    "descriptionAudio": {
-      "type": "string"
-    },
-    "descriptionLong": {
-      "type": "string"
-    },
-    "descriptionLongAudio": {
-      "type": "string"
-    },
-    "zipFileUrl": {
       "type": "string"
     },
     "created": {
@@ -37,11 +22,14 @@
     "active": {
       "type": "boolean"
     },
-    "statusId": {
+    "app": {
+      "type": "string"
+    },
+    "status": {
       "type": "number"
     },
-    "imageId": {
-      "type": "number"
+    "image": {
+      "type": "string"
     },
     "languageId": {
       "type": "string"
