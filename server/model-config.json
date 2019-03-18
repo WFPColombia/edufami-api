@@ -57,5 +57,9 @@
   "Unit": {
     "dataSource": "mysqlDs",
     "public": true
+  },
+  "Lesson": {
+    "dataSource": "mysqlDs",
+    "public": true
   }
 }

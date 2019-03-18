@@ -1,7 +1,17 @@
-console.log('models-update...')
-var server = require('./server');
+console.log("models-update...");
+var server = require("./server");
 var mysqlDs = server.dataSources.mysqlDs;
-var lbTables = ['AccessToken', 'ACL', 'RoleMapping', 'Role', 'StaffUser', 'Training', 'Unit', 'UserAccount'];
+var lbTables = [
+  "AccessToken",
+  "ACL",
+  "RoleMapping",
+  "Role",
+  "StaffUser",
+  "Training",
+  "Unit",
+  "Lesson",
+  "UserAccount"
+];
 
 async function autoupdateModels() {
   await autoupdateTraining();
@@ -14,16 +24,18 @@ function autoupdateTraining() {
       if (!actual) {
         mysqlDs.autoupdate(lbTables, function(err) {
           if (err) throw err;
-          console.log('All models autoupdated sucessfully!!')
-          console.log('Loopback tables [' + lbTables + '] updated in ', mysqlDs.adapter.name);
-          resolve()
+          console.log("All models autoupdated sucessfully!!");
+          console.log(
+            "Loopback tables [" + lbTables + "] updated in ",
+            mysqlDs.adapter.name
+          );
+          resolve();
         });
       } else {
-        console.log('Nothing to update')
-        resolve()
+        console.log("Nothing to update");
+        resolve();
       }
     });
-
   });
 }
 

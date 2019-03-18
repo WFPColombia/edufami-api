@@ -1,5 +1,5 @@
 {
-  "name": "Unit",
+  "name": "Lesson",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -16,23 +16,18 @@
     "image": {
       "type": "string"
     },
-    "status": {
-      "type": "string"
+    "order": {
+      "type": "number"
     },
-    "trainingId": {
+    "unitId": {
       "type": "number"
     }
   },
   "validations": [],
   "relations": {
-    "training": {
+    "unit": {
       "type": "belongsTo",
-      "model": "Training",
-      "foreignKey": "trainingId"
-    },
-    "lessons": {
-      "type": "hasMany",
-      "model": "Lesson",
+      "model": "Unit",
       "foreignKey": ""
     }
   },
