@@ -19,14 +19,11 @@
     "edited": {
       "type": "date"
     },
-    "active": {
-      "type": "boolean"
-    },
     "app": {
       "type": "string"
     },
     "status": {
-      "type": "number"
+      "type": "string"
     },
     "image": {
       "type": "string"
@@ -36,6 +33,9 @@
     },
     "ownerId": {
       "type": "number"
+    },
+    "visible": {
+      "type": "boolean"
     }
   },
   "validations": [],
