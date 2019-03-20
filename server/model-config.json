@@ -65,5 +65,9 @@
   "Step": {
     "dataSource": "mysqlDs",
     "public": true
+  },
+  "Option": {
+    "dataSource": "mysqlDs",
+    "public": true
   }
 }

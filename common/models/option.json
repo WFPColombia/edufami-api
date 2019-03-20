@@ -1,37 +1,38 @@
 {
-  "name": "Step",
+  "name": "Option",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "type": {
-      "type": "string"
-    },
-    "instruction": {
-      "type": "string"
-    },
-    "question": {
-      "type": "string"
+    "text": {
+      "type": "string",
+      "required": true
     },
     "image": {
       "type": "string"
     },
+    "isCorrect": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "feedback": {
+      "type": "string"
+    },
     "order": {
+      "type": "number"
+    },
+    "column": {
       "type": "number"
     }
   },
   "validations": [],
   "relations": {
-    "lesson": {
+    "step": {
       "type": "belongsTo",
-      "model": "Lesson",
-      "foreignKey": ""
-    },
-    "options": {
-      "type": "hasMany",
-      "model": "Option",
+      "model": "Step",
       "foreignKey": ""
     }
   },

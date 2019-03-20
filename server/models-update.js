@@ -11,6 +11,7 @@ var lbTables = [
   "Unit",
   "Lesson",
   "Step",
+  "Option",
   "UserAccount"
 ];
 
