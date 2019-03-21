@@ -1,6 +1,6 @@
 version: "3"
 services:
   api: # name of second service
-      build: . # specify the directory of the Dockerfile
-      ports:
-        - "3000:3000" # specify port mapping
+    build: . # specify the directory of the Dockerfile
+    ports:
+      - "3030:3000" # specify port mapping
