@@ -13,4 +13,4 @@ COPY . /opt/src/app
 
 EXPOSE 3000
 
-RUN npm run prod
+CMD ["npm", "start"]
