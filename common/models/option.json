@@ -21,15 +21,31 @@
     "feedback": {
       "type": "string"
     },
-    "order": {
-      "type": "number"
-    },
     "column": {
       "type": "number"
+    },
+    "pair": {
+      "type": "number",
+      "default": 0
+    },
+    "visible": {
+      "type": "boolean",
+      "default": true
+    },
+    "created": {
+      "type": "date"
+    },
+    "edited": {
+      "type": "date"
     }
   },
   "validations": [],
   "relations": {
+    "owner": {
+      "type": "belongsTo",
+      "model": "StaffUser",
+      "foreignKey": "ownerId"
+    },
     "step": {
       "type": "belongsTo",
       "model": "Step",

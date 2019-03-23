@@ -69,5 +69,13 @@
   "Option": {
     "dataSource": "mysqlDs",
     "public": true
+  },
+  "Language": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Version": {
+    "dataSource": "mysqlDs",
+    "public": true
   }
 }

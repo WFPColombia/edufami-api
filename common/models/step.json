@@ -7,10 +7,13 @@
   },
   "properties": {
     "type": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "default": "informative"
     },
     "instruction": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "question": {
       "type": "string"
@@ -19,11 +22,32 @@
       "type": "string"
     },
     "order": {
-      "type": "number"
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "status": {
+      "type": "string",
+      "default": "draft"
+    },
+    "visible": {
+      "type": "boolean",
+      "default": true
+    },
+    "created": {
+      "type": "date"
+    },
+    "edited": {
+      "type": "date"
     }
   },
   "validations": [],
   "relations": {
+    "owner": {
+      "type": "belongsTo",
+      "model": "StaffUser",
+      "foreignKey": "ownerId"
+    },
     "lesson": {
       "type": "belongsTo",
       "model": "Lesson",
