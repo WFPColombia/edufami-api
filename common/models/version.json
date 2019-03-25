@@ -1,0 +1,29 @@
+{
+  "name": "Version",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "trainings": {
+      "type": "date"
+    },
+    "units": {
+      "type": "date"
+    },
+    "lessons": {
+      "type": "date"
+    },
+    "steps": {
+      "type": "date"
+    },
+    "options": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

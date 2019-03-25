@@ -11,44 +11,51 @@
       "required": true
     },
     "description": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
       "type": "string"
+    },
+    "objective": {
+      "type": "string"
+    },
+    "app": {
+      "type": "string",
+      "required": true,
+      "default": "edufami"
+    },
+    "status": {
+      "type": "string",
+      "default": "draft"
+    },
+    "visible": {
+      "type": "boolean",
+      "default": true
     },
     "created": {
       "type": "date"
     },
     "edited": {
       "type": "date"
-    },
-    "app": {
-      "type": "string"
-    },
-    "status": {
-      "type": "string"
-    },
-    "image": {
-      "type": "string"
-    },
-    "languageId": {
-      "type": "string"
-    },
-    "ownerId": {
-      "type": "number"
-    },
-    "visible": {
-      "type": "boolean"
     }
   },
   "validations": [],
   "relations": {
     "owner": {
       "type": "belongsTo",
-      "model": "UserAccount",
+      "model": "StaffUser",
       "foreignKey": "ownerId"
     },
     "units": {
       "type": "hasMany",
       "model": "Unit",
       "foreignKey": "trainingId"
+    },
+    "languages": {
+      "type": "belongsTo",
+      "model": "Language",
+      "foreignKey": "languageId"
     }
   },
   "acls": [

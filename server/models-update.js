@@ -12,7 +12,9 @@ var lbTables = [
   "Lesson",
   "Step",
   "Option",
-  "UserAccount"
+  "UserAccount",
+  "Language",
+  "Version"
 ];
 
 async function autoupdateModels() {

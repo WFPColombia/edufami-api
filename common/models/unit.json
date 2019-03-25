@@ -11,23 +11,42 @@
       "required": true
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "image": {
       "type": "string"
     },
-    "status": {
+    "objective": {
       "type": "string"
     },
-    "trainingId": {
-      "type": "number"
-    },
     "order": {
-      "type": "number"
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "status": {
+      "type": "string",
+      "default": "draft"
+    },
+    "visible": {
+      "type": "boolean",
+      "default": true
+    },
+    "created": {
+      "type": "date"
+    },
+    "edited": {
+      "type": "date"
     }
   },
   "validations": [],
   "relations": {
+    "owner": {
+      "type": "belongsTo",
+      "model": "StaffUser",
+      "foreignKey": "ownerId"
+    },
     "training": {
       "type": "belongsTo",
       "model": "Training",
