@@ -5,15 +5,18 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
-  "validations": [],
-  "relations": {
-    "trainings": {
-      "type": "hasMany",
-      "model": "Training",
-      "foreignKey": "ownerId"
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
     }
   },
+  "validations": [],
+  "relations": {},
   "acls": [
     {
       "accessType": "*",
