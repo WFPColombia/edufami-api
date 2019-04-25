@@ -13,6 +13,14 @@
     "lastName": {
       "type": "string",
       "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": false
+    },
+    "terms": {
+      "type": "boolean",
+      "required": true
     }
   },
   "validations": [],
