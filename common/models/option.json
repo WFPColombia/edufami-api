@@ -14,9 +14,9 @@
       "type": "string"
     },
     "isCorrect": {
-      "type": "boolean",
+      "type": "number",
       "required": true,
-      "default": false
+      "default": 0
     },
     "feedback": {
       "type": "string"
