@@ -4,10 +4,10 @@ var mysqlDs = server.dataSources.mysqlDs;
 //create all models
 
 async function createSampleData() {
-  await createStaffUsers();
-  await createUserAccounts();
-  await createTrainings();
-  await createUnits();
+  // await createStaffUsers();
+  await createAppUsers();
+  // await createTrainings();
+  // await createUnits();
   console.log("\nAll sample data created successfully!!");
   mysqlDs.disconnect();
 }
@@ -33,12 +33,12 @@ function createStaffUsers() {
   });
 }
 
-//create App Users
-// Creating mock data for createUserAccounts
-function createUserAccounts() {
+// Create App Users
+// Creating mock data for createAppUsers
+function createAppUsers() {
   return new Promise((resolve, reject) => {
-    var UserAccount = server.models.UserAccount;
-    UserAccount.create(
+    var AppUser = server.models.AppUser;
+    AppUser.create(
       [
         {
           email: "user@mail.com",
@@ -47,7 +47,7 @@ function createUserAccounts() {
         }
       ],
       () => {
-        console.log("UserAccount sample data created successfully.");
+        console.log("AppUser sample data created successfully.");
         resolve();
       }
     );

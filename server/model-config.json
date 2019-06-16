@@ -13,19 +13,9 @@
       "./mixins"
     ]
   },
-  "User": {
-    "dataSource": "mysqlDs"
-  },
-  "AccessToken": {
+  "CustomAccessToken": {
     "dataSource": "mysqlDs",
-    "public": true,
-    "relations": {
-      "user": {
-        "type": "belongsTo",
-        "model": "UserAccount",
-        "foreignKey": "UserAccountId"
-      }
-    }
+    "public": true
   },
   "ACL": {
     "dataSource": "mysqlDs",
@@ -42,15 +32,15 @@
     "dataSource": "mysqlDs",
     "public": true
   },
-  "Training": {
-    "dataSource": "mysqlDs",
-    "public": true
-  },
-  "UserAccount": {
+  "AppUser": {
     "dataSource": "mysqlDs",
     "public": true
   },
   "StaffUser": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Training": {
     "dataSource": "mysqlDs",
     "public": true
   },
@@ -75,6 +65,10 @@
     "public": true
   },
   "Version": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Advance": {
     "dataSource": "mysqlDs",
     "public": true
   }

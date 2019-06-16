@@ -32,12 +32,18 @@
   },
   "session": {},
   "auth": {
-    "loopback#token": {}
+    "loopback#token": {
+      "params": {
+        "model": "CustomAccessToken"
+      }
+    }
   },
   "parse": {},
   "routes": {
     "loopback#rest": {
-      "paths": ["${restApiRoot}"]
+      "paths": [
+        "${restApiRoot}"
+      ]
     }
   },
   "files": {},

@@ -1,6 +1,6 @@
 {
-  "name": "StaffUser",
-  "base": "User",
+  "name": "CustomAccessToken",
+  "base": "AccessToken",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -8,15 +8,13 @@
   "properties": {},
   "validations": [],
   "relations": {
-    "accessTokens": {
-      "type": "hasMany",
-      "model": "CustomAccessToken",
+    "user": {
+      "type": "belongsTo",
+      "idName": "id",
       "polymorphic": {
+        "idType": "number",
         "foreignKey": "userId",
         "discriminator": "principalType"
-      },
-      "options": {
-        "disableInclude": true
       }
     }
   },

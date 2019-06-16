@@ -2,17 +2,18 @@ console.log("models-update...");
 var server = require("./server");
 var mysqlDs = server.dataSources.mysqlDs;
 var lbTables = [
-  "AccessToken",
+  "Advance",
+  "CustomAccessToken",
   "ACL",
   "RoleMapping",
   "Role",
   "StaffUser",
+  "AppUser",
   "Training",
   "Unit",
   "Lesson",
   "Step",
   "Option",
-  "UserAccount",
   "Language",
   "Version"
 ];

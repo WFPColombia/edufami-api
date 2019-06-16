@@ -1,5 +1,5 @@
 {
-  "name": "UserAccount",
+  "name": "AppUser",
   "base": "User",
   "idInjection": true,
   "options": {
@@ -48,6 +48,18 @@
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__create__advances"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__get__advances"
     }
   ],
   "methods": {}

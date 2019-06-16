@@ -1,31 +1,26 @@
 {
-  "name": "Language",
+  "name": "Advance",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "name": {
-      "type": "string"
-    },
-    "icon": {
-      "type": "string"
-    },
-    "abbreviation": {
-      "type": "string",
-      "required": true
+    "created": {
+      "type": "date"
     }
   },
   "validations": [],
   "relations": {
-    "trainings": {
-      "type": "hasMany",
-      "model": "Training",
-      "foreignKey": "",
-      "options": {
-        "nestRemoting": true
-      }
+    "appUser": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": ""
+    },
+    "lesson": {
+      "type": "belongsTo",
+      "model": "Lesson",
+      "foreignKey": ""
     }
   },
   "acls": [
