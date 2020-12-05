@@ -15,7 +15,7 @@ var lbTables = [
   "Step",
   "Option",
   "Language",
-  "Version"
+  "Version",
 ];
 
 async function autoupdateModels() {
@@ -25,9 +25,9 @@ async function autoupdateModels() {
 
 function autoupdateTraining() {
   return new Promise((resolve, reject) => {
-    mysqlDs.isActual(lbTables, function(err, actual) {
+    mysqlDs.isActual(lbTables, function (err, actual) {
       if (!actual) {
-        mysqlDs.autoupdate(lbTables, function(err) {
+        mysqlDs.autoupdate(lbTables, function (err) {
           if (err) throw err;
           console.log("All models autoupdated sucessfully!!");
           console.log(
