@@ -5,27 +5,38 @@
 'Edufami - Api' is the API restfull app for all the apps of [Edufami](http://edufami.org).
 Edufami is created by WFP - Colombia.
 
-###
+### Setup
 
-### Get Started
-
-````bash
-
-### Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run local
-
-# build for production with minification
-npm run dev
-
-# build for production and view the bundle analyzer report
-npm run prod
-````
+1. Install [yarn](https://classic.yarnpkg.com/en/docs/install)
+2. Follow all the steps in Loopback 3.x [Installation](https://loopback.io/doc/en/lb3/Installation) section.
+3. Install dependencies:
+   ```bash
+   yarn install
+   ```
+4. Install MySQL and create a new database
+5. Open the file named `datasources.local.json` and update it with the information of your database (i.e)
+   ```json
+   {
+     "mysqlDs": {
+       "host": "localhost",
+       "port": 3306,
+       "url": "",
+       "database": "edufami_local",
+       "password": "myPassword",
+       "name": "mysqlDs",
+       "user": "myUser",
+       "connector": "mysql"
+     }
+   }
+   ```
+6. Update database structure in the local environment:
+   ```bash
+   yarn run update-models
+   ```
+7. Create sample data
+   ```bash
+   yarn run create-sample-data
+   ```
 
 ### Reference
 
