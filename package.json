@@ -11,8 +11,8 @@
     "local": "NODE_ENV='local' node .",
     "postinstall": "yarn create-datasources",
     "create-datasources": "cp -n server/datasources.json server/datasources.local.json|| true",
-    "update-local": "NODE_ENV='local' node server/models-update.js",
-    "sample-data-local": "NODE_ENV='local' node server/models-create-sample-data.js",
+    "update-models": "NODE_ENV='local' node server/models-update.js",
+    "create-sample-data": "NODE_ENV='local' node server/models-create-sample-data.js",
     "posttest": "npm run lint"
   },
   "dependencies": {

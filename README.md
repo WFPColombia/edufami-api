@@ -13,6 +13,30 @@ Edufami is created by WFP - Colombia.
     ``` bash
     yarn install
     ```
+4. Install MySQL and create a new database
+5. Open the file named `datasources.local.json` and update it with the information of your database (i.e)
+    ```json
+    {
+        "mysqlDs": {
+            "host": "localhost",
+            "port": 3306,
+            "url": "",
+            "database": "edufami_local",
+            "password": "myPassword",
+            "name": "mysqlDs",
+            "user": "myUser",
+            "connector": "mysql"
+        }
+    }
+    ```
+6. Update database structure in the local environment:
+   ```bash
+   yarn run update-models
+   ```
+7. Create sample data
+   ```bash
+   yarn run create-sample-data
+   ```
 
 ### Reference
 
