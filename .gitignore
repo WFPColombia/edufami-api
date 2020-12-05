@@ -14,8 +14,8 @@
 .idea
 .project
 .strong-pm
+.vscode/
 coverage
 node_modules
 npm-debug.log
-server/datasources.development.json
-server/datasources.production.json
+server/datasources.*.json

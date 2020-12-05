@@ -9,12 +9,10 @@
     "lint": "eslint .",
     "start": "node .",
     "local": "NODE_ENV='local' node .",
-    "dev": "NODE_ENV='development' node .",
-    "prod": "NODE_ENV='production' node .",
-    "update-dev": "NODE_ENV='development' node server/models-update.js",
-    "update-prod": "NODE_ENV='production' node server/models-update.js",
-    "sample-data-dev": "NODE_ENV='development' node server/models-create-sample-data.js",
-    "sample-data-prod": "NODE_ENV='production' node server/models-create-sample-data.js",
+    "postinstall": "yarn create-datasources",
+    "create-datasources": "cp -n server/datasources.json server/datasources.local.json|| true",
+    "update-local": "NODE_ENV='local' node server/models-update.js",
+    "sample-data-local": "NODE_ENV='local' node server/models-create-sample-data.js",
     "posttest": "npm run lint"
   },
   "dependencies": {
