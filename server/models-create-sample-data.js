@@ -1,162 +1,112 @@
 console.log("models-create-sample-data...");
 var server = require("./server");
 var mysqlDs = server.dataSources.mysqlDs;
-//create all models
+
+const INITIAL_DATA = {
+  AppUsers: {
+    name: "AppUser",
+    data: [
+      {
+        firstName: "User",
+        lastName: "LastName",
+        email: "user@dev.com",
+        username: "user",
+        password: "qwe123",
+        terms: true,
+      },
+    ],
+  },
+  staffUsers: {
+    name: "StaffUser",
+    data: [
+      {
+        email: "admin@mail.com",
+        username: "admin",
+        password: "qwe123",
+      },
+    ],
+  },
+  trainings: {
+    name: "Training",
+    data: [
+      {
+        name: "Equfami para todos",
+        image: "image4.png",
+        app: "equfami",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis lobortis velit at finibus. Donec euismod maximus eleifend.",
+        created: Date.now(),
+        ownerId: 1,
+      },
+    ],
+  },
+  units: {
+    name: "Unit",
+    data: [
+      {
+        name: "Alimentación Saludable",
+        name_audio: "",
+        description:
+          "En este m&oacute;dulo identificaremos qu&eacute; es la alimentaci&oacute;n y de qu&eacute; se componen los alimentos",
+        description_audio: "string",
+        image_id: "string",
+        status: "string",
+        trainingId: 1,
+      },
+      {
+        name: "Combinaciones Saludables",
+        name_audio: "",
+        description:
+          "En este m&oacute;dulo identificaremos y haremos uso de combinaciones alimentarias saludables",
+        description_audio: "string",
+        image_id: "string",
+        status: "string",
+        trainingId: 2,
+      },
+    ],
+  },
+};
 
 async function createSampleData() {
-  // await createStaffUsers();
-  await createAppUsers();
-  // await createTrainings();
-  // await createUnits();
-  console.log("\nAll sample data created successfully!!");
+  try {
+    await addSampleDataToModel(
+      INITIAL_DATA.staffUsers.name,
+      INITIAL_DATA.staffUsers.data
+    );
+    await addSampleDataToModel(
+      INITIAL_DATA.appUsers.name,
+      INITIAL_DATA.appUsers.data
+    );
+    await addSampleDataToModel(
+      INITIAL_DATA.trainings.name,
+      INITIAL_DATA.trainings.data
+    );
+    await addSampleDataToModel(
+      INITIAL_DATA.units.name,
+      INITIAL_DATA.units.data
+    );
+
+    console.log("\nAll sample data created successfully!!");
+  } catch (error) {
+    console.log("\nError");
+  }
+
   mysqlDs.disconnect();
 }
 
-//create Staff Members
-// Creating mock data for staff members
-function createStaffUsers() {
+const addSampleDataToModel = (modelName, data) => {
   return new Promise((resolve, reject) => {
-    var StaffUser = server.models.StaffUser;
-    StaffUser.create(
-      [
-        {
-          email: "admin@mail.com",
-          username: "admin",
-          password: "qwe123",
-        },
-      ],
-      () => {
-        console.log("StaffUser sample data created successfully.");
+    const model = server.models[modelName];
+    model.create(data, (error) => {
+      if (error) {
+        console.log(error);
+        reject();
+      } else {
+        console.log(`${modelName} Sample data created successfully`);
         resolve();
       }
-    );
+    });
   });
-}
-
-// Create App Users
-// Creating mock data for createAppUsers
-function createAppUsers() {
-  return new Promise((resolve, reject) => {
-    var AppUser = server.models.AppUser;
-    AppUser.create(
-      [
-        {
-          email: "user@mail.com",
-          username: "user",
-          password: "qwe123",
-        },
-      ],
-      () => {
-        console.log("AppUser sample data created successfully.");
-        resolve();
-      }
-    );
-  });
-}
-
-//create trainings
-function createTrainings() {
-  return new Promise((resolve, reject) => {
-    var Training = server.models.Training;
-    Training.create(
-      [
-        {
-          id: 1,
-          name: "Equfami para todos",
-          image: "image4.png",
-          app: "equfami",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis lobortis velit at finibus. Donec euismod maximus eleifend.",
-          created: Date.now(),
-          ownerId: 1,
-        },
-        /*{
-          id: 2,
-          name: "Climafami para todos",
-          image: "image5.png",
-          app: "climafami",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis lobortis velit at finibus. Donec euismod maximus eleifend.",
-          created: Date.now(),
-          ownerId: 1
-        },
-        {
-          id: 3,
-          name: "Nutrifami para Todos",
-          image: "image1.png",
-          app: "nutrifami",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis lobortis velit at finibus. Donec euismod maximus eleifend.",
-          created: Date.now(),
-          ownerId: 1
-        },
-        {
-          id: 4,
-          name: "Nutrifami Pácifico",
-          image: "image2.png",
-          app: "nutrifami",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis lobortis velit at finibus. Donec euismod maximus eleifend.",
-          created: Date.now(),
-          ownerId: 1
-        },
-        {
-          id: 5,
-          name: "Nutrifami Senegal",
-          image: "image3.png",
-          app: "nutrifami",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis lobortis velit at finibus. Donec euismod maximus eleifend.",
-          created: Date.now(),
-          ownerId: 1
-        }*/
-      ],
-      (err, trainings) => {
-        console.log("Antes");
-        //if (err) throw err;
-        console.log("Training sample data created successfully." + trainings);
-        resolve();
-      }
-    );
-  });
-}
-
-// CreateUnits
-
-function createUnits() {
-  return new Promise((resolve, reject) => {
-    var Unit = server.models.Unit;
-    Unit.create(
-      [
-        {
-          id: 1,
-          name: "Alimentación Saludable",
-          name_audio: "",
-          description:
-            "En este m&oacute;dulo identificaremos qu&eacute; es la alimentaci&oacute;n y de qu&eacute; se componen los alimentos",
-          description_audio: "string",
-          image_id: "string",
-          status: "string",
-          trainingId: 1,
-        },
-        {
-          id: 2,
-          name: "Combinaciones Saludables",
-          name_audio: "",
-          description:
-            "En este m&oacute;dulo identificaremos y haremos uso de combinaciones alimentarias saludables",
-          description_audio: "string",
-          image_id: "string",
-          status: "string",
-          trainingId: 2,
-        },
-      ],
-      () => {
-        console.log("Unit sample data created successfully.");
-        resolve();
-      }
-    );
-  });
-}
+};
 
 createSampleData();
