@@ -22,8 +22,8 @@ function createStaffUsers() {
         {
           email: "admin@mail.com",
           username: "admin",
-          password: "qwe123"
-        }
+          password: "qwe123",
+        },
       ],
       () => {
         console.log("StaffUser sample data created successfully.");
@@ -43,8 +43,8 @@ function createAppUsers() {
         {
           email: "user@mail.com",
           username: "user",
-          password: "qwe123"
-        }
+          password: "qwe123",
+        },
       ],
       () => {
         console.log("AppUser sample data created successfully.");
@@ -68,8 +68,8 @@ function createTrainings() {
           description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis lobortis velit at finibus. Donec euismod maximus eleifend.",
           created: Date.now(),
-          ownerId: 1
-        }
+          ownerId: 1,
+        },
         /*{
           id: 2,
           name: "Climafami para todos",
@@ -137,7 +137,7 @@ function createUnits() {
           description_audio: "string",
           image_id: "string",
           status: "string",
-          trainingId: 1
+          trainingId: 1,
         },
         {
           id: 2,
@@ -148,8 +148,8 @@ function createUnits() {
           description_audio: "string",
           image_id: "string",
           status: "string",
-          trainingId: 2
-        }
+          trainingId: 2,
+        },
       ],
       () => {
         console.log("Unit sample data created successfully.");

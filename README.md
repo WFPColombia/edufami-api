@@ -1,12 +1,15 @@
-# Edufami - Api 
+# Edufami - Api
 
 ### Introduction
+
 'Edufami - Api' is the API restfull app for all the apps of [Edufami](http://edufami.org).
 Edufami is created by WFP - Colombia.
 
 ###
+
 ### Get Started
-```bash
+
+````bash
 
 ### Build Setup
 
@@ -22,12 +25,11 @@ npm run dev
 
 # build for production and view the bundle analyzer report
 npm run prod
-```
-
+````
 
 ### Reference
 
-* [Loopback.io](https://loopback.io/)
+- [Loopback.io](https://loopback.io/)
 
 ## License
 

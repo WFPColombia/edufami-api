@@ -31,8 +31,10 @@
     "strong-error-handler": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^3.17.1",
-    "eslint-config-loopback": "^8.0.0"
+    "eslint": "^7.14.0",
+    "eslint-config-loopback": "^13.1.0",
+    "eslint-config-prettier": "6.15.0",
+    "prettier": "2.2.1"
   },
   "repository": {
     "type": "",
